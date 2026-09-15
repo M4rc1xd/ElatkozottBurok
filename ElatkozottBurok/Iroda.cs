@@ -6,6 +6,6 @@ namespace ElatkozottBurok
 {
     public class Iroda
     {
-    
+        
     }
 }
