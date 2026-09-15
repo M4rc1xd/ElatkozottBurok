@@ -28,20 +28,30 @@ namespace ElatkozottBurok
 
         public int KoffeinLoket
         {
-            get { return koffeinLoket; }
-            set { koffeinLoket = value; }
+            get => koffeinLoket;
+            set { if (koffeinLoket < 0) { 
+                koffeinLoket = 0; 
+                } else if (koffeinLoket > 50) { 
+                    koffeinLoket = 50; 
+                } else { koffeinLoket = value; } }
         }
 
         public int StresszOldas
         {
-            get { return stresszOldas; }
-            set { stresszOldas = value; }
+            get => stresszOldas;
+            set { if (stresszOldas < 0) { 
+                stresszOldas = 0; 
+                } else if (stresszOldas > 30) { 
+                    stresszOldas = 30; 
+                } else { stresszOldas = value; } }
         }
 
         public int Ar
         {
-            get { return ar; }
-            set { ar = value; }
+            get => ar;
+            set { if (ar < 0) { 
+                ar = 100; 
+                } else { ar = value; } }
         }
     }
 }

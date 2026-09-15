@@ -5,7 +5,7 @@ namespace ElatkozottBurok.Tesztek
     public class IrodaTesztek
     {
         [Test]
-        public void Nassolnivalo_UresNev_BeallitjaAlap�rtelmezettet()
+        public void Nassolnivalo_UresNev_BeallitjaAlapértelmezettet()
         {
             var snack = new Nassolnivalo("", 10, 10, 200);
             Assert.That(snack.Nev, Is.EqualTo("ismeretlen nassolnivalo"));
