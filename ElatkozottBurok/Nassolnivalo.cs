@@ -12,9 +12,9 @@ namespace ElatkozottBurok
         public Nassolnivalo(string nev, int koffeinLoket, int stresszOldas, int ar)
         {
             this.Nev = nev;
-            this.koffeinLoket = koffeinLoket;
-            this.stresszOldas = stresszOldas;
-            this.ar = ar;
+            this.KoffeinLoket = koffeinLoket;
+            this.StresszOldas = stresszOldas;
+            this.Ar = ar;
         }
 
         public string Nev
