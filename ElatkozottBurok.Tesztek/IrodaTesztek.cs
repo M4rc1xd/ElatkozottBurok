@@ -5,10 +5,10 @@ namespace ElatkozottBurok.Tesztek
     public class IrodaTesztek
     {
         [Test]
-        public void Nassolnivalo_UresNev_BeallitjaAlapértelmezettet()
+        public void Nassolnivalo_UresNev_BeallitjaAlapï¿½rtelmezettet()
         {
             var snack = new Nassolnivalo("", 10, 10, 200);
-            Assert.That(snack.Nev, Is.EqualTo("Ismeretlen nassolnivaló"));
+            Assert.That(snack.Nev, Is.EqualTo("ismeretlen nassolnivalo"));
         }
 
         [Test]
@@ -23,13 +23,13 @@ namespace ElatkozottBurok.Tesztek
         [Test]
         public void Fejleszto_KoffeinEsStresszHatarteruletek_EsKiegveAllapot()
         {
-            var dev = new Fejleszto("Teszt Elek", Munkakor.Junior, 1000, "Kávé", 50, 20);
+            var dev = new Fejleszto("Teszt Elek", Munkakor.Junior, 1000, "Kï¿½vï¿½", 50, 20);
 
             dev.Koffeinszint = 120;
             Assert.That(dev.Koffeinszint, Is.EqualTo(100));
             Assert.That(dev.Kiegve, Is.True);
 
-            var dev2 = new Fejleszto("Teszt Anna", Munkakor.Senior, 1000, "Kávé", 50, 20);
+            var dev2 = new Fejleszto("Teszt Anna", Munkakor.Senior, 1000, "Kï¿½vï¿½", 50, 20);
             dev2.StresszSzint = 100;
             Assert.That(dev2.StresszSzint, Is.EqualTo(100));
             Assert.That(dev2.Kiegve, Is.True);
@@ -38,12 +38,12 @@ namespace ElatkozottBurok.Tesztek
         [Test]
         public void Fejleszto_KedvencSnack_KetszeresStresszoldasEsExtraKoffein()
         {
-            var dev = new Fejleszto("Márk", Munkakor.Junior, 1000, "Maci Laci", 30, 50);
+            var dev = new Fejleszto("Mï¿½rk", Munkakor.Junior, 1000, "Maci Laci", 30, 50);
             var kedvenc = new Nassolnivalo("Maci Laci", 10, 10, 200);
 
             dev.Fogyaszt(kedvenc);
 
-            // Koffein: 30 + 10 + 5 (bónusz) = 45
+            // Koffein: 30 + 10 + 5 (bï¿½nusz) = 45
             // Stressz: 50 - (10 * 2) = 30
             Assert.That(dev.Koffeinszint, Is.EqualTo(45));
             Assert.That(dev.StresszSzint, Is.EqualTo(30));
@@ -53,9 +53,9 @@ namespace ElatkozottBurok.Tesztek
         public void Automata_ElakadvaAllapotban_MegnoveliAVasarloStresszet()
         {
             var automata = new Automata { Elakadva = true };
-            var dev = new Fejleszto("Péter", Munkakor.Senior, 1000, "Kávé", 50, 20);
+            var dev = new Fejleszto("Pï¿½ter", Munkakor.Senior, 1000, "Kï¿½vï¿½", 50, 20);
 
-            var kapott = automata.Vasarlas("Kávé", dev);
+            var kapott = automata.Vasarlas("Kï¿½vï¿½", dev);
 
             Assert.That(kapott, Is.Null);
             Assert.That(dev.StresszSzint, Is.EqualTo(35)); // 20 + 15
@@ -65,10 +65,10 @@ namespace ElatkozottBurok.Tesztek
         public void Automata_KevesPenz_NemAdKiTermeket()
         {
             var automata = new Automata();
-            automata.Feltolt(new List<Nassolnivalo> { new Nassolnivalo("Kávé", 20, 10, 300) });
-            var dev = new Fejleszto("Szegény Béla", Munkakor.Junior, 100, "Kávé");
+            automata.Feltolt(new List<Nassolnivalo> { new Nassolnivalo("Kï¿½vï¿½", 20, 10, 300) });
+            var dev = new Fejleszto("Szegï¿½ny Bï¿½la", Munkakor.Junior, 100, "Kï¿½vï¿½");
 
-            var kapott = automata.Vasarlas("Kávé", dev);
+            var kapott = automata.Vasarlas("Kï¿½vï¿½", dev);
 
             Assert.That(kapott, Is.Null);
             Assert.That(dev.Penz, Is.EqualTo(100));
